@@ -6,8 +6,8 @@
 #=======================================================
 #   System Required:  CentOS/Debian/Ubuntu (32bit/64bit)
 #   Description:  Manager for Ngrok, Written by Clang
-#   Author: Clang <admin@clangcn.com>
-#   Intro:  http://clangcn.com
+#   Author: Clang <admin@phpll.com>
+#   Intro:  http://phpll.com
 #=======================================================
 ### BEGIN INIT INFO
 # Provides:          ngrok
@@ -262,16 +262,16 @@ check_ngrok_subdomain(){
             [ -n "${ddns[3]}" ] && FQDN=\"${ddns[0]}.${dns}\",\"${ddns[1]}.${dns}\",\"${ddns[2]}.${dns}\",\"${ddns[3]}.${dns}\"
             [ -n "${ddns[4]}" ] && FQDN=\"${ddns[0]}.${dns}\",\"${ddns[1]}.${dns}\",\"${ddns[2]}.${dns}\",\"${ddns[3]}.${dns}\",\"${ddns[4]}.${dns}\"
         else
-            [ -n "${ddns[0]}" ] && subdns=\"${ddns[0]}.${userName}\"
-            [ -n "${ddns[1]}" ] && subdns=\"${ddns[0]}.${userName}\",\"${ddns[1]}.${userName}\"
-            [ -n "${ddns[2]}" ] && subdns=\"${ddns[0]}.${userName}\",\"${ddns[1]}.${userName}\",\"${ddns[2]}.${userName}\"
-            [ -n "${ddns[3]}" ] && subdns=\"${ddns[0]}.${userName}\",\"${ddns[1]}.${userName}\",\"${ddns[2]}.${userName}\",\"${ddns[3]}.${userName}\"
-            [ -n "${ddns[4]}" ] && subdns=\"${ddns[0]}.${userName}\",\"${ddns[1]}.${userName}\",\"${ddns[2]}.${userName}\",\"${ddns[3]}.${userName}\",\"${ddns[4]}.${userName}\"
-            [ -n "${ddns[0]}" ] && FQDN=\"${ddns[0]}.${userName}.${dns}\"
-            [ -n "${ddns[1]}" ] && FQDN=\"${ddns[0]}.${userName}.${dns}\",\"${ddns[1]}.${userName}.${dns}\"
-            [ -n "${ddns[2]}" ] && FQDN=\"${ddns[0]}.${userName}.${dns}\",\"${ddns[1]}.${userName}.${dns}\",\"${ddns[2]}.${userName}.${dns}\"
-            [ -n "${ddns[3]}" ] && FQDN=\"${ddns[0]}.${userName}.${dns}\",\"${ddns[1]}.${userName}.${dns}\",\"${ddns[2]}.${userName}.${dns}\",\"${ddns[3]}.${userName}.${dns}\"
-            [ -n "${ddns[4]}" ] && FQDN=\"${ddns[0]}.${userName}.${dns}\",\"${ddns[1]}.${userName}.${dns}\",\"${ddns[2]}.${userName}.${dns}\",\"${ddns[3]}.${userName}.${dns}\",\"${ddns[4]}.${userName}.${dns}\"
+            [ -n "${ddns[0]}" ] && subdns=\"${userName}\"
+            [ -n "${ddns[1]}" ] && subdns=\"${userName}\",\"${userName}\"
+            [ -n "${ddns[2]}" ] && subdns=\"${userName}\",\"${userName}\",\"${userName}\"
+            [ -n "${ddns[3]}" ] && subdns=\"${userName}\",\"${userName}\",\"${userName}\",\"${userName}\"
+            [ -n "${ddns[4]}" ] && subdns=\"${userName}\",\"${userName}\",\"${userName}\",\"${userName}\",\"${userName}\"
+            [ -n "${ddns[0]}" ] && FQDN=\"${userName}.${dns}\"
+            [ -n "${ddns[1]}" ] && FQDN=\"${userName}.${dns}\",\"${userName}.${dns}\"
+            [ -n "${ddns[2]}" ] && FQDN=\"${userName}.${dns}\",\"${userName}.${dns}\",\"${userName}.${dns}\"
+            [ -n "${ddns[3]}" ] && FQDN=\"${userName}.${dns}\",\"${userName}.${dns}\",\"${userName}.${dns}\",\"${userName}.${dns}\"
+            [ -n "${ddns[4]}" ] && FQDN=\"${userName}.${dns}\",\"${userName}.${dns}\",\"${userName}.${dns}\",\"${userName}.${dns}\",\"${userName}.${dns}\"
         fi
         echo "Your subdomain: ${subdns}"
         fun_set_ngrok_authId

@@ -2,8 +2,8 @@
 #===============================================================================================
 #   System Required:  CentOS Debian or Ubuntu (32bit/64bit)
 #   Description:  Install Ngrok for CentOS Debian or Ubuntu
-#   Author: Clang <admin@clangcn.com>
-#   Intro:  http://clang.cn
+#   Author: Clang <admin@phpll.cc>
+#   Intro:  http://phpll.cc
 #===============================================================================================
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
@@ -30,9 +30,9 @@ function fun_clangcn.com(){
 echo ""
 echo "#######################################################################"
 echo "# install Ngrok ${version} for Debian/Ubuntu/CentOS Linux Server"
-echo "# Intro: http://clang.cn/blog/"
+echo "# Intro: http://phpll.cc.cc/blog/"
 echo "#"
-echo "# Author: Clang <admin@clangcn.com>"
+echo "# Author: Clang <admin@phpll.com>"
 echo "# version:${version}"
 echo "#######################################################################"
 echo ""
@@ -165,7 +165,7 @@ function pre_install(){
     # Download shadowsocks chkconfig file
     if [ "${Is_64bit}" == 'y' ] ; then
         if [ ! -s /root/go1.6.linux-amd64.tar.gz ]; then
-            if ! wget --no-check-certificate https://github.com/clangcn/golang/raw/master/go1.6/go1.6.linux-amd64.tar.gz; then
+            if ! wget --no-check-certificate https://github.com/xrw001/golang/raw/master/go1.6/go1.6.linux-amd64.tar.gz; then
                 echo "Failed to download go1.6.linux-amd64.tar.gz file!"
                 exit 1
             fi
@@ -173,7 +173,7 @@ function pre_install(){
         tar zxvf go1.6.linux-amd64.tar.gz
     else
          if [ ! -s /root/go1.6.linux-386.tar.gz ]; then
-            if ! wget --no-check-certificate https://github.com/clangcn/golang/raw/master/go1.6/go1.6.linux-386.tar.gz; then
+            if ! wget --no-check-certificate https://github.com/xrw001/golang/raw/master/go1.6/go1.6.linux-386.tar.gz; then
                 echo "Failed to download go1.6.linux-386.tar.gz file!"
                 exit 1
             fi
@@ -185,7 +185,7 @@ function pre_install(){
     ln -s /usr/local/go/bin/* /usr/bin/
     go version
     cd /usr/local/
-    git clone https://github.com/clangcn/ngrok-1.7.git ngrok
+    git clone https://github.com/xrw001/ngrok-1.7.git ngrok
     export GOPATH=/usr/local/ngrok/
     cd ngrok
     openssl genrsa -out rootCA.key 2048
@@ -250,9 +250,9 @@ cat > ${str_ngrok_dir}/.ngrok_config.sh <<EOF
 # -------------config START-------------
 dns="${NGROK_DOMAIN}"
 pass="${ngrok_pass}"
-http_port=80
-https_port=443
-remote_port=4443
+http_port=8088
+https_port=4433
+remote_port=4455
 srtCRT=server.crt
 strKey=server.key
 loglevel="INFO"
@@ -265,9 +265,9 @@ cat > ${str_ngrok_dir}/.ngrok_config.sh <<EOF
 # -------------config START-------------
 dns="${NGROK_DOMAIN}"
 pass="${ngrok_pass}"
-http_port=80
-https_port=443
-remote_port=4443
+http_port=8088
+https_port=4433
+remote_port=4455
 srtCRT=server.crt
 strKey=server.key
 loglevel="INFO"
@@ -276,7 +276,7 @@ SingleUser="n"
 EOF
 fi 
 
-if ! wget --no-check-certificate https://github.com/clangcn/ngrok-one-key-install/raw/master/ngrokd.init -O /etc/init.d/ngrokd; then
+if ! wget --no-check-certificate https://github.com/xrw001/ngrok-one-key-install/raw/master/ngrokd.init -O /etc/init.d/ngrokd; then
     echo "Failed to download ngrokd.init file!"
     exit 1
 fi

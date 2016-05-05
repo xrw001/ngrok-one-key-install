@@ -9,7 +9,7 @@ Server
 ### Install
 执行命令：
 ```Bash
-wget --no-check-certificate https://github.com/clangcn/ngrok-one-key-install/raw/master/install_ngrok.sh -O ./install_ngrok.sh
+wget --no-check-certificate https://github.com/xrw001/ngrok-one-key-install/raw/master/install_ngrok.sh -O ./install_ngrok.sh
 chmod 500 ./install_ngrok.sh
 ./install_ngrok.sh install	
 ```
@@ -21,6 +21,6 @@ chmod 500 ./install_ngrok.sh
 ~~*### 自己编译安装*~~
 
 ~~*执行命令:*~~
-~~*wget --no-check-certificate https://github.com/clangcn/ngrok-one-key-install/raw/master/ngrok_install.sh -O ./ngrok_install.sh*~~
+~~*wget --no-check-certificate https://github.com/xrw001/ngrok-one-key-install/raw/master/ngrok_install.sh -O ./ngrok_install.sh*~~
 ~~*chmod 500 ./ngrok_install.sh*~~
 ~~*./ngrok_install.sh*~~
