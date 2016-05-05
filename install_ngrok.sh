@@ -2,8 +2,8 @@
 #===============================================================================================
 #   System Required:  CentOS Debian or Ubuntu (32bit/64bit)
 #   Description:  Install Ngrok for CentOS Debian or Ubuntu
-#   Author: Clang <admin@clangcn.com>
-#   Intro:  http://clang.cn
+#   Author: Clang <admin@phpll.com>
+#   Intro:  http://phpll.com
 #===============================================================================================
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
@@ -15,9 +15,9 @@ function fun_clang.cn(){
 echo ""
 echo "#######################################################################"
 echo "# install Ngrok for Debian/Ubuntu/CentOS Linux Server"
-echo "# Intro: http://clang.cn/blog/"
+echo "# Intro: http://phpll.com"
 echo "#"
-echo "# Author: Clang <admin@clangcn.com>"
+echo "# Author: Clang <admin@phpll.com>"
 echo "# version:${version}"
 echo "#######################################################################"
 echo ""
@@ -169,14 +169,14 @@ function pre_install(){
     # Download ngrok file
     if [ "${Is_64bit}" == 'y' ] ; then
         if [ ! -s ${str_ngrok_dir}/bin/ngrokd ]; then
-            if ! wget --no-check-certificate https://github.com/clangcn/ngrok-one-key-install/raw/master/ngrokd/ngrokd.x86_64 -O ${str_ngrok_dir}/bin/ngrokd; then
+            if ! wget --no-check-certificate https://github.com/xrw001/ngrok-one-key-install/raw/master/ngrokd/ngrokd.x86_64 -O ${str_ngrok_dir}/bin/ngrokd; then
                 echo "Failed to download ngrokd.x86_64 file!"
                 exit 1
             fi
         fi
     else
          if [ ! -s ${str_ngrok_dir}/bin/ngrokd ]; then
-            if ! wget --no-check-certificate https://github.com/clangcn/ngrok-one-key-install/raw/master/ngrokd/ngrokd.x86 -O ${str_ngrok_dir}/bin/ngrokd; then
+            if ! wget --no-check-certificate https://github.com/xrw001/ngrok-one-key-install/raw/master/ngrokd/ngrokd.x86 -O ${str_ngrok_dir}/bin/ngrokd; then
                 echo "Failed to download ngrokd.x86 file!"
                 exit 1
             fi
@@ -198,7 +198,7 @@ function pre_install(){
         echo "On key install Ngrok ${version} for Debian/Ubuntu/CentOS Linux Server"
         echo "========================================================================="
         echo ""
-        echo "For more information please visit http://clang.cn/"
+        echo "For more information please visit http://phpll.cc/"
         echo ""
         echo -e "ngrok status manage: \033[45;37m/etc/init.d/ngrokd\033[0m {\033[40;31mstart\033[0m|\033[40;32mstop\033[0m|\033[40;33mrestart\033[0m|\033[40;34mconfig\033[0m|\033[40;35madduser\033[0m|\033[40;36minfo\033[0m}"
         echo -e "Your Domain: \033[32m\033[01m${NGROK_DOMAIN}\033[0m"
@@ -233,9 +233,9 @@ cat > ${str_ngrok_dir}/.ngrok_config.sh <<EOF
 # -------------config START-------------
 dns="${NGROK_DOMAIN}"
 pass="${ngrok_pass}"
-http_port=80
-https_port=443
-remote_port=4443
+http_port=8088
+https_port=4433
+remote_port=4455
 srtCRT=server.crt
 strKey=server.key
 loglevel="INFO"
@@ -248,9 +248,9 @@ cat > ${str_ngrok_dir}/.ngrok_config.sh <<EOF
 # -------------config START-------------
 dns="${NGROK_DOMAIN}"
 pass="${ngrok_pass}"
-http_port=80
-https_port=443
-remote_port=4443
+http_port=8088
+https_port=4433
+remote_port=4455
 srtCRT=server.crt
 strKey=server.key
 loglevel="INFO"
@@ -259,7 +259,7 @@ SingleUser="n"
 EOF
 fi 
 
-if ! wget --no-check-certificate https://github.com/clangcn/ngrok-one-key-install/raw/master/ngrokd.init -O /etc/init.d/ngrokd; then
+if ! wget --no-check-certificate https://github.com/xrw001/ngrok-one-key-install/raw/master/ngrokd.init -O /etc/init.d/ngrokd; then
     echo "Failed to download ngrokd.init file!"
     exit 1
 fi
@@ -407,21 +407,21 @@ function fun_update_ngrok(){
         # Download ngrok file
         if [ "${Is_64bit}" == 'y' ] ; then
             if [ ! -s ${str_ngrok_dir}/bin/ngrokd ]; then
-                if ! wget --no-check-certificate https://github.com/clangcn/ngrok-one-key-install/raw/master/ngrokd/ngrokd.x86_64 -O ${str_ngrok_dir}/bin/ngrokd; then
+                if ! wget --no-check-certificate https://github.com/xrw001/ngrok-one-key-install/raw/master/ngrokd/ngrokd.x86_64 -O ${str_ngrok_dir}/bin/ngrokd; then
                     echo "Failed to download ngrokd.x86_64 file!"
                     exit 1
                 fi
             fi
         else
              if [ ! -s ${str_ngrok_dir}/bin/ngrokd ]; then
-                if ! wget --no-check-certificate https://github.com/clangcn/ngrok-one-key-install/raw/master/ngrokd/ngrokd.x86 -O ${str_ngrok_dir}/bin/ngrokd; then
+                if ! wget --no-check-certificate https://github.com/xrw001/ngrok-one-key-install/raw/master/ngrokd/ngrokd.x86 -O ${str_ngrok_dir}/bin/ngrokd; then
                     echo "Failed to download ngrokd.x86 file!"
                     exit 1
                 fi
             fi
         fi
         [ ! -x ${str_ngrok_dir}/bin/ngrokd ] && chmod 755 ${str_ngrok_dir}/bin/ngrokd
-        if ! wget --no-check-certificate https://github.com/clangcn/ngrok-one-key-install/raw/master/ngrokd.init -O /etc/init.d/ngrokd; then
+        if ! wget --no-check-certificate https://github.com/xrw001/ngrok-one-key-install/raw/master/ngrokd.init -O /etc/init.d/ngrokd; then
             echo "Failed to download ngrokd.init file!"
             exit 1
         fi
