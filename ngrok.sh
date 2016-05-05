@@ -4,8 +4,8 @@ export PATH
 #=======================================================
 #   System Required:  CentOS/Debian/Ubuntu (32bit/64bit)
 #   Description:  Manager for Ngrok, Written by Clang
-#   Author: Clang <admin@clangcn.com>
-#   Intro:  http://clangcn.com
+#   Author: Clang <admin@phpll.com>
+#   Intro:  http://phpll.com
 #=======================================================
 version="v4.0"
 arg1=$1
@@ -16,9 +16,9 @@ function clang.cn(){
     echo ""
     echo "#############################################################"
     echo "#  Manager Ngrok ${version} for CentOS/Debian/Ubuntu (32bit/64bit)"
-    echo "#  Intro: http://clangcn.com"
+    echo "#  Intro: http://phpll.com"
     echo "#"
-    echo "#  Author: Clang <admin@clangcn.com>"
+    echo "#  Author: Clang <admin@phpll.com>"
     echo "#"
     echo "#############################################################"
 }
@@ -110,7 +110,7 @@ function fun_set_ngrok_username(){
 }
 
 function fun_set_ngrok_authId(){
-    strPass=`openssl rand -base64 12`
+    strPass=`openssl rand -base64 20`
     echo "Please input the password (more than 8) of Ngrok authId:"
     read -p "(Default password: $strPass):" strPassword
     if [ "$strPassword" = "" ]; then
